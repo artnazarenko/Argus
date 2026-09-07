@@ -25,3 +25,4 @@ body { margin: 0; }
 .status--implemented { background: color-mix(in srgb, var(--argus-success) 16%, transparent); color: var(--argus-success); }
 .status--reference { background: color-mix(in srgb, var(--argus-text-secondary) 14%, transparent); color: var(--argus-text-secondary); }
 .status--wip { background: color-mix(in srgb, var(--argus-primary) 15%, transparent); color: var(--argus-primary); }
+.demo-box { background: color-mix(in srgb, var(--argus-primary) 12%, transparent); border-radius: 6px; color: var(--argus-text); min-height: 52px; padding: 14px; }

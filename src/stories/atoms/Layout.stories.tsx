@@ -1,0 +1,5 @@
+import { Col, Divider, Flex, Layout, Row, Space, Watermark } from 'antd';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+function LayoutExamples() { return <Space direction="vertical" size="large" style={{ width: '100%' }}><Flex gap="small" wrap><span>Flex 1</span><span>Flex 2</span><span>Flex 3</span></Flex><Divider plain>Разделитель</Divider><Row gutter={[12, 12]}><Col span={8}><div className="demo-box">Grid 1</div></Col><Col span={8}><div className="demo-box">Grid 2</div></Col><Col span={8}><div className="demo-box">Grid 3</div></Col></Row><Layout style={{ minHeight: 120 }}><Layout.Sider width={130}>Sider</Layout.Sider><Layout.Content style={{ padding: 16 }}>Content</Layout.Content></Layout><Watermark content="Argus"><div style={{ height: 90, padding: 20 }}>Watermark</div></Watermark></Space>; }
+export default { title: 'Components/Layout', component: LayoutExamples } satisfies Meta<typeof LayoutExamples>;
+export const AllComponents: StoryObj<typeof LayoutExamples> = {};

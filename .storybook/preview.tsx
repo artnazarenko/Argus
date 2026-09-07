@@ -1,5 +1,7 @@
 import type { Preview } from '@storybook/react-vite';
 import React from 'react';
+import { ConfigProvider, theme } from 'antd';
+import 'antd/dist/reset.css';
 import '../src/styles/tokens.css';
 import '../src/styles/storybook.css';
 
@@ -19,11 +21,14 @@ const preview: Preview = {
     },
   },
   decorators: [
-    (Story, context) => (
-      <div className="argus-story-root" data-theme={context.globals.theme}>
-        <Story />
-      </div>
-    ),
+    (Story, context) => {
+      const isDark = context.globals.theme === 'dark';
+      return <div className="argus-story-root" data-theme={context.globals.theme}>
+        <ConfigProvider theme={{ algorithm: isDark ? theme.darkAlgorithm : theme.defaultAlgorithm, token: { colorPrimary: isDark ? '#786fff' : '#4433ff', borderRadius: 8, fontFamily: 'X5 Sans VF, Arial, sans-serif' } }}>
+          <Story />
+        </ConfigProvider>
+      </div>;
+    },
   ],
   parameters: {
     layout: 'padded',

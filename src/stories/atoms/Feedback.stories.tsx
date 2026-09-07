@@ -1,0 +1,6 @@
+import { Alert, Button, Drawer, Modal, Popconfirm, Progress, Skeleton, Space, Spin } from 'antd';
+import { useState } from 'react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+function FeedbackExamples() { const [modal, setModal] = useState(false); const [drawer, setDrawer] = useState(false); return <Space direction="vertical" size="large"><Alert message="Информационное сообщение" type="info" showIcon /><Alert message="Ошибка валидации" type="error" showIcon /><Space><Progress type="circle" percent={75} /><Skeleton active paragraph={{ rows: 2 }} style={{ width: 260 }} /><Spin size="large" /></Space><Space><Button onClick={() => setModal(true)}>Открыть Modal</Button><Button onClick={() => setDrawer(true)}>Открыть Drawer</Button><Popconfirm title="Удалить элемент?" description="Действие нельзя отменить."><Button danger>Удалить</Button></Popconfirm></Space><Modal open={modal} title="Подтвердите действие" onOk={() => setModal(false)} onCancel={() => setModal(false)}>Содержимое модального окна</Modal><Drawer open={drawer} title="Боковая панель" onClose={() => setDrawer(false)}>Содержимое Drawer</Drawer></Space>; }
+export default { title: 'Components/Feedback', component: FeedbackExamples } satisfies Meta<typeof FeedbackExamples>;
+export const AllComponents: StoryObj<typeof FeedbackExamples> = {};
