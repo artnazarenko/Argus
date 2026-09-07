@@ -13,3 +13,15 @@ body { margin: 0; }
 .type-scale { display: grid; gap: 16px; margin-top: 28px; }
 .type-row { border-bottom: 1px solid var(--argus-border-secondary); padding-bottom: 16px; }
 .type-meta { color: var(--argus-text-secondary); font-size: 12px; }
+.catalog-page { max-width: 1180px; }
+.catalog-legend { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.catalog-section { margin-top: 34px; }
+.catalog-section h2 { font-size: 20px; margin: 0 0 12px; }
+.catalog-grid { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }
+.catalog-card { background: var(--argus-bg-elevated); border: 1px solid var(--argus-border-secondary); border-radius: var(--argus-radius); min-height: 106px; padding: 14px; }
+.catalog-card__name { font-weight: 650; margin-bottom: 10px; }
+.catalog-card__source { color: var(--argus-text-secondary); font-size: 12px; margin-top: 8px; }
+.status { border-radius: 999px; display: inline-flex; font-size: 11px; font-weight: 650; line-height: 20px; padding: 0 8px; }
+.status--implemented { background: color-mix(in srgb, var(--argus-success) 16%, transparent); color: var(--argus-success); }
+.status--reference { background: color-mix(in srgb, var(--argus-text-secondary) 14%, transparent); color: var(--argus-text-secondary); }
+.status--wip { background: color-mix(in srgb, var(--argus-primary) 15%, transparent); color: var(--argus-primary); }

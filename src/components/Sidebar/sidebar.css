@@ -1,0 +1,20 @@
+.argus-sidebar { background: var(--argus-bg-elevated); border: 1px solid var(--argus-border-secondary); border-radius: 10px; color: var(--argus-text); display: flex; flex-direction: column; justify-content: space-between; min-height: 630px; padding: 8px; position: relative; transition: width .2s ease; width: 256px; }
+.argus-sidebar--collapsed { align-items: center; width: 64px; }
+.argus-sidebar__top, .argus-sidebar__bottom { display: grid; gap: 6px; width: 100%; }
+.argus-sidebar__brand, .argus-sidebar__nav-item, .argus-sidebar__help, .argus-sidebar__collapse, .argus-sidebar__account, .argus-app-switcher__item { align-items: center; background: transparent; border: 0; border-radius: 6px; color: var(--argus-text); cursor: pointer; display: flex; font: inherit; gap: 10px; min-height: 38px; padding: 0 10px; text-align: left; width: 100%; }
+.argus-sidebar__brand:hover, .argus-sidebar__nav-item:hover, .argus-sidebar__help:hover, .argus-sidebar__collapse:hover, .argus-sidebar__account:hover { background: color-mix(in srgb, var(--argus-primary) 7%, transparent); }
+.argus-sidebar__brand { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+.argus-sidebar__brand-mark, .argus-app-switcher__icon { align-items: center; background: var(--argus-primary); border-radius: 7px; color: #fff; display: inline-flex; height: 24px; justify-content: center; width: 24px; }
+.argus-sidebar__brand-name, .argus-sidebar__account-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.argus-sidebar__chevron { color: var(--argus-text-secondary); margin-left: auto; }
+.argus-sidebar__nav { display: grid; gap: 2px; }
+.argus-sidebar__nav-item { color: var(--argus-text-secondary); font-weight: 500; }
+.argus-sidebar__nav-item.is-active { background: color-mix(in srgb, var(--argus-primary) 10%, transparent); color: var(--argus-primary); }
+.argus-icon { align-items: center; display: inline-flex; font-size: 19px; height: 20px; justify-content: center; line-height: 1; width: 20px; }
+.argus-sidebar--collapsed .argus-sidebar__brand, .argus-sidebar--collapsed .argus-sidebar__nav-item, .argus-sidebar--collapsed .argus-sidebar__collapse, .argus-sidebar--collapsed .argus-sidebar__account { justify-content: center; padding-inline: 0; }
+.argus-sidebar__account { border: 1px solid var(--argus-border-secondary); min-width: 0; }
+.argus-sidebar__avatar { align-items: center; background: #d8b99a; border-radius: 50%; color: #fff; display: inline-flex; font-size: 9px; font-weight: 700; height: 24px; justify-content: center; min-width: 24px; }
+.argus-app-switcher { background: var(--argus-bg-elevated); border: 1px solid var(--argus-border); border-radius: 8px; box-shadow: 0 8px 20px rgba(0,0,0,.16); display: grid; gap: 2px; left: 8px; padding: 6px; position: absolute; top: 54px; width: 244px; z-index: 2; }
+.argus-sidebar--collapsed .argus-app-switcher { left: 64px; width: 220px; }
+.argus-app-switcher__item { font-weight: 500; }
+.argus-app-switcher__item:hover, .argus-app-switcher__item.is-active { background: color-mix(in srgb, var(--argus-primary) 10%, transparent); }
