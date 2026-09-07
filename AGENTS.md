@@ -13,6 +13,10 @@ architecture has been reviewed and recorded under `docs/architecture/`.
 - Do not claim that code in this repository is ready for production reuse.
 - Prefer explicit component contracts over undocumented visual imitation.
 - Keep imported token exports separate from normalized runtime tokens.
+- Do not hard-code shared table headings or field labels inside page stories.
+- Reference canonical field definitions from the shared field catalog.
+- Keep field definitions, mock values, and UI scenarios in separate layers.
+- Use deterministic mock data so visual examples and tests remain stable.
 
 ## Git workflow
 
@@ -36,4 +40,4 @@ A component change must include, where applicable:
 - content constraints;
 - a frontend handoff note;
 - updated Storybook documentation and examples.
-
+- updated field catalog or mock scenarios when the data contract changes.

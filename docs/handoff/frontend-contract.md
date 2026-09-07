@@ -26,6 +26,8 @@ For every documented component or pattern, Storybook should expose:
 12. **Composition examples** — realistic use inside a page or product pattern.
 13. **Change notes** — what changed, why it changed, and which consumers may be
     affected.
+14. **Data contract** — canonical field keys, labels, value types, formats, and
+    reusable mock scenarios.
 
 ## Recommended Storybook surface
 
@@ -39,6 +41,7 @@ Each component should provide:
 - a responsive example;
 - at least one realistic composition example;
 - a concise implementation note for production teams.
+- a link to relevant entries in the generated Data Dictionary.
 
 ## What engineers should not infer
 
@@ -63,4 +66,3 @@ The intended handoff unit is not a source file. It is a reviewed package of:
 
 This gives production engineers more reliable input than measuring a static
 frame, while preserving their ownership of the final implementation.
-
