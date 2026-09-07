@@ -97,5 +97,19 @@ body { margin: 0; }
 .input-probe .ant-input { font-family: var(--argus-font-family); }
 .input-probe--hover .ant-input { border-color: #6171ff !important; background: #fff !important; }
 .input-probe--focused .ant-input { background: #fff !important; border-color: #4133ff !important; box-shadow: 0 0 0 2px #0591ff1a !important; }
+.checkbox-catalog { border: 1px solid var(--argus-border); border-radius: var(--argus-radius); overflow: auto; }
+.checkbox-catalog__table { border-collapse: separate; border-spacing: 0; min-width: 780px; width: 100%; }
+.checkbox-catalog__table th, .checkbox-catalog__table td { border-bottom: 1px solid var(--argus-border-secondary); border-right: 1px solid var(--argus-border-secondary); padding: 14px; text-align: center; vertical-align: middle; }
+.checkbox-catalog__table th { background: color-mix(in srgb, var(--argus-primary) 6%, var(--argus-bg-elevated)); color: var(--argus-text-secondary); font-size: 12px; font-weight: var(--argus-font-weight-strong); }
+.checkbox-catalog__table td:first-child { background: var(--argus-bg-elevated); text-align: left; }
+.checkbox-catalog__table tr:last-child td { border-bottom: 0; }
+.checkbox-catalog__table th:last-child, .checkbox-catalog__table td:last-child { border-right: 0; }
+.checkbox-catalog__not-applicable { color: var(--argus-text-secondary); }
+.checkbox-probe { display: inline-flex; position: relative; }
+.checkbox-probe::after { background: #1f1f24; border-radius: 4px; color: #fff; content: attr(data-token); display: none; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; left: 50%; line-height: 1.3; max-width: 230px; padding: 6px 8px; pointer-events: none; position: absolute; top: calc(100% + 7px); transform: translateX(-50%); white-space: normal; z-index: 5; }
+.checkbox-probe:hover::after { display: block; }
+.checkbox-probe--hover .ant-checkbox-inner { border-color: #6171ff !important; }
+.checkbox-probe--hover .ant-checkbox-checked .ant-checkbox-inner { background: #6171ff !important; }
+.checkbox-probe--focused .ant-checkbox-inner { border-color: #4133ff !important; box-shadow: 0 0 0 2px #0591ff1a !important; }
 @media (max-width: 640px) { .token-table { font-size: 12px; } .token-table th, .token-table td { padding: 8px; } }
 @media (max-width: 640px) { .argus-story-root { padding: 16px; } .component-page__title { font-size: 26px; } }

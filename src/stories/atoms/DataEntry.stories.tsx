@@ -43,9 +43,39 @@ function InputMatrix() {
   </ComponentPage>;
 }
 
+type CheckboxStatus = 'Inactive' | 'Active' | 'Indeterminate';
+const checkboxStates = ['Default', 'Hover', 'Focused', 'Disabled'] as const;
+const checkboxAvailability: Record<CheckboxStatus, readonly typeof checkboxStates[number][]> = {
+  Inactive: ['Default', 'Hover', 'Focused', 'Disabled'],
+  Active: ['Default', 'Hover', 'Disabled'],
+  Indeterminate: ['Default', 'Hover', 'Focused', 'Disabled'],
+};
+
+function CheckboxProbe({ status, state }: { status: CheckboxStatus; state: typeof checkboxStates[number] }) {
+  const token = `Components/Checkbox · Status=${status} · State=${state}`;
+  return <span className={`checkbox-probe checkbox-probe--${state.toLowerCase()}`} data-token={token}><Checkbox defaultChecked={status === 'Active'} indeterminate={status === 'Indeterminate'} disabled={state === 'Disabled'}>Подпись</Checkbox></span>;
+}
+
+function CheckboxMatrix() {
+  return <ComponentPage category="Data Entry" name="Checkbox" description="Полная матрица страницы «⚪ Checkbox» NEW DS ARGUS: статусы Inactive, Active, Indeterminate и все состояния, существующие в компонент-сете Figma.">
+    <ComponentSection title="Контракт токенов" description="Checkbox не имеет кастомной группы Component: используются значения Components/Checkbox/Global из NEW DS ARGUS.">
+      <table className="token-table"><thead><tr><th>Свойство</th><th>Токен</th><th>Значение</th></tr></thead><tbody>
+        <tr><td>Интерактивная область</td><td><span className="token-chip">controlInteractiveSize</span></td><td>16 px</td></tr>
+        <tr><td>Скругление</td><td><span className="token-chip">borderRadiusSM</span></td><td>4 px</td></tr>
+        <tr><td>Границы и фокус</td><td><span className="token-chip">lineWidth / lineWidthBold / lineWidthFocus</span></td><td>1 / 2 / 4 px</td></tr>
+        <tr><td>Primary</td><td><span className="token-chip">colorPrimary / colorPrimaryHover / colorPrimaryBorder</span></td><td>#4133FF / #6171FF / #B2C4FF</td></tr>
+        <tr><td>Текст</td><td><span className="token-chip">fontFamily / fontSize / lineHeight</span></td><td>X5 Sans VF / 14 / 22 px</td></tr>
+      </tbody></table>
+    </ComponentSection>
+    <ComponentSection title="Статусы и состояния" description="Повторяет 11 вариантов в Figma. Пустая ячейка означает: такой комбинации в исходном component set нет.">
+      <div className="checkbox-catalog"><table className="checkbox-catalog__table"><thead><tr><th>Status</th>{checkboxStates.map((state) => <th key={state}>{state}</th>)}</tr></thead><tbody>{(['Inactive', 'Active', 'Indeterminate'] as const).map((status) => <tr key={status}><td><strong>{status}</strong></td>{checkboxStates.map((state) => <td key={state}>{checkboxAvailability[status].includes(state) ? <CheckboxProbe status={status} state={state} /> : <span className="checkbox-catalog__not-applicable">—</span>}</td>)}</tr>)}</tbody></table></div>
+    </ComponentSection>
+  </ComponentPage>;
+}
+
 export const AutoCompleteStory: Story = { name: 'AutoComplete', render: () => <Page name="AutoComplete"><AutoComplete options={[{ value: 'Архитектура' }, { value: 'Аналитика' }]} placeholder="Начните ввод" style={{ width: 320 }} /></Page> };
 export const CascaderStory: Story = { name: 'Cascader', render: () => <Page name="Cascader"><Cascader options={[{ value: 'portal', label: 'Портал', children: [{ value: 'tasks', label: 'Задачи' }] }]} placeholder="Выберите раздел" /></Page> };
-export const CheckboxStory: Story = { name: 'Checkbox', render: () => <Page name="Checkbox"><Space><Checkbox>Не выбрано</Checkbox><Checkbox defaultChecked>Выбрано</Checkbox><Checkbox disabled>Недоступно</Checkbox></Space></Page> };
+export const CheckboxStory: Story = { name: 'Checkbox', render: () => <CheckboxMatrix /> };
 export const ColorPickerStory: Story = { name: 'ColorPicker', render: () => <Page name="ColorPicker"><ColorPicker defaultValue="#4433ff" showText /></Page> };
 export const DatePickerStory: Story = { name: 'DatePicker', render: () => <Page name="DatePicker"><Space wrap><DatePicker placeholder="Дата" /><DatePicker.RangePicker /></Space></Page> };
 export const FormStory: Story = { name: 'Form', render: () => <Page name="Form"><Form layout="vertical" style={{ maxWidth: 360 }}><Form.Item label="Название" required><Input placeholder="Введите название" /></Form.Item><Form.Item><Button type="primary">Сохранить</Button></Form.Item></Form></Page> };
