@@ -21,6 +21,13 @@ architecture has been reviewed and recorded under `docs/architecture/`.
 - Reference canonical field definitions from the shared field catalog.
 - Keep field definitions, mock values, and UI scenarios in separate layers.
 - Use deterministic mock data so visual examples and tests remain stable.
+- Treat `ARGUS Light` and `ARGUS Dark` as mandatory review modes for every
+  implemented visual component.
+- Use the `Default` dimensions and typography mode for the initial runtime;
+  retain `Compact` in normalized tokens but do not expose it as a product
+  setting until explicitly requested.
+- Mark Figma components carrying the hammer status as WIP in Storybook. They
+  are valid working references but must not be presented as finalized.
 
 ## Git workflow
 

@@ -17,5 +17,10 @@ Files under `raw/` are preserved exactly as delivered. Runtime code must not
 import raw files directly. A later normalization step will produce validated
 tokens and assets for Storybook.
 
-Place the source libraries in `raw/libraries/`, preferably as `ANT.fig` and
-`Argus.fig`. Preserve the original filenames when they carry version information.
+The original Figma `.fig` libraries are deliberately **not** stored in Git or
+copied to `raw/libraries/`. They are local inspection material only. Their
+filenames and checksums are recorded in `manifest.json` for traceability.
+
+The raw source committed here is the immutable plugin export in
+`raw/tokens/`. Do not edit either `ant.tokens.json` or `argus.tokens.json` in
+place; create normalized runtime tokens and a documented mapping separately.

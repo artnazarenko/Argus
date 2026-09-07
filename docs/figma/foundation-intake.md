@@ -3,15 +3,17 @@
 This intake defines the first delivery required to reproduce the atomic Argus UI
 in Storybook. The underlying design system name is `ANT`.
 
-The first ANT and Argus `.fig` libraries were received and inspected on
-2026-09-07. See the [initial library inventory](library-inventory-2026-09-07.md).
+The first ANT and Argus `.fig` libraries were received and inspected locally on
+2026-09-07, but are intentionally excluded from Git. The original token exports
+for both libraries are held unchanged under `imports/figma/raw/tokens/`. See
+the [initial library inventory](library-inventory-2026-09-07.md).
 This spelling must not be automatically replaced with another product name.
 
 ## Minimum useful delivery
 
 ### 1. Figma source
 
-Provide one of the following:
+For inspection only, provide one of the following:
 
 - access to the Figma library file and a direct file URL;
 - an exported `.fig` file;
@@ -42,8 +44,9 @@ Expected token groups include:
 - component-level tokens already introduced by the team.
 
 Raw exports are stored under `imports/figma/raw/tokens/` and are never edited in
-place. Normalized runtime tokens will be generated separately after their source
-shape is understood.
+place. The ANT and Argus JSON exports were received on 2026-09-07. Normalized
+runtime tokens will be generated separately after their source shape is
+understood.
 
 ### 3. Brand delta from ANT
 
@@ -127,7 +130,7 @@ preserve source traceability.
 
 After receiving the delivery, Argus will:
 
-1. preserve the raw files;
+1. preserve the raw token exports and checksums (but not `.fig` files);
 2. inventory token collections and modes;
 3. identify naming collisions and missing aliases;
 4. record the ANT-to-Argus brand delta;
