@@ -3,14 +3,46 @@
     "baseName": "ANT",
     "argusOverrides": true
   },
+  "libraries": [
+    {
+      "role": "base",
+      "name": "ANT",
+      "fileName": "DS ANT - Original file.fig",
+      "sizeBytes": 45341399,
+      "sha256": "5c55725dfe73cb3dea51ff8590488d62eccfa79981e3124da605d59c7c2b3d8e",
+      "exportedAt": "2026-09-07T12:56:02.611Z",
+      "repositoryStorage": "pending-git-lfs"
+    },
+    {
+      "role": "derived",
+      "name": "Argus",
+      "fileName": "NEW DS ARGUS.fig",
+      "sizeBytes": 66335044,
+      "sha256": "85c644c44b64f6aecf36f1ed3a13c4cdb7750d97e5c708875d0a7b19cb25aeff",
+      "exportedAt": "2026-09-07T12:59:34.549Z",
+      "repositoryStorage": "pending-git-lfs"
+    }
+  ],
   "source": {
     "figmaFileUrl": null,
-    "fileName": null,
     "exportPlugin": null,
-    "exportedAt": null
+    "tokenExportFiles": []
   },
-  "tokenModes": [],
-  "fontFamilies": [],
+  "tokenModes": [
+    "ARGUS Light",
+    "ARGUS Dark",
+    "Default",
+    "Compact"
+  ],
+  "fontFamilies": [
+    "X5 Sans VF",
+    "X5 Sans UI",
+    "SF Pro Text",
+    "Inter"
+  ],
   "assets": [],
-  "notes": []
+  "notes": [
+    "The source .fig files were inspected locally and are not committed until Git LFS is available.",
+    "A plugin JSON token export is still required for the normalized token pipeline."
+  ]
 }

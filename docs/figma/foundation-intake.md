@@ -2,6 +2,9 @@
 
 This intake defines the first delivery required to reproduce the atomic Argus UI
 in Storybook. The underlying design system name is `ANT`.
+
+The first ANT and Argus `.fig` libraries were received and inspected on
+2026-09-07. See the [initial library inventory](library-inventory-2026-09-07.md).
 This spelling must not be automatically replaced with another product name.
 
 ## Minimum useful delivery
