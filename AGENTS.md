@@ -13,6 +13,10 @@ architecture has been reviewed and recorded under `docs/architecture/`.
 - Do not claim that code in this repository is ready for production reuse.
 - Prefer explicit component contracts over undocumented visual imitation.
 - Keep imported token exports separate from normalized runtime tokens.
+- Treat files under `imports/figma/raw/` as immutable source artifacts. Never
+  format, normalize, or repair them in place.
+- Record normalization or naming changes in generated runtime files and mapping
+  documentation, preserving the original export for comparison.
 - Do not hard-code shared table headings or field labels inside page stories.
 - Reference canonical field definitions from the shared field catalog.
 - Keep field definitions, mock values, and UI scenarios in separate layers.

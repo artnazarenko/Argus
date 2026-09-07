@@ -29,3 +29,6 @@ be added after the preliminary architecture is reviewed.
 
 The next step is to add the proposed architecture and decide the runtime,
 Storybook structure, token-import format, component taxonomy, and preview host.
+
+The first design-system delivery should follow the
+[Figma foundation intake](docs/figma/foundation-intake.md).
