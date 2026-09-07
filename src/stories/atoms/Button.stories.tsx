@@ -1,6 +1,7 @@
-import { Button, FloatButton, Typography } from 'antd';
+import { Button, FloatButton } from 'antd';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ComponentPage, ComponentSection } from '../../components/showcase/ComponentPage';
+import { TypographyReference } from '../../components/showcase/TypographyReference';
 import { ArgusIcon, figmaLucideNames, unresolvedFigmaIconNames } from '../../icons/figmaLucide';
 
 const variants = [
@@ -54,5 +55,5 @@ export const IconStory: Story = {
 };
 export const TypographyStory: Story = {
   name: 'Typography',
-  render: () => <ComponentPage category="General" name="Typography" description="Типографические стили Argus. Основной шрифт — X5 Sans VF."><ComponentSection title="Текст" description="Имена HTML-элементов и компонентов не переводятся; пояснения и примеры — на русском."><Typography><Typography.Title level={2}>Заголовок интерфейса</Typography.Title><Typography.Paragraph>Текст для описания задачи, статуса и контекста.</Typography.Paragraph><Typography.Text type="secondary">Вторичный текст</Typography.Text></Typography></ComponentSection></ComponentPage>,
+  render: () => <ComponentPage category="General" name="Typography" description="Полная спецификация типографики NEW DS ARGUS. Страница повторяет стили из Figma: Heading, Paragraph Text, UI Text и насыщенность X5 Sans VF; во всех строках приведены токены Default / Compact."><TypographyReference /></ComponentPage>,
 };
