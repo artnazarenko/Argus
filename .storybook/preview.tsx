@@ -42,7 +42,7 @@ const preview: Preview = {
         : { controlHeightSM: 24, controlHeight: 32, controlHeightLG: 40 };
 
       return <div className="argus-story-root" data-theme={context.globals.theme} data-density={context.globals.density}>
-        <ConfigProvider locale={ruRU} componentSize={isCompact ? 'small' : 'middle'} theme={{ algorithm: isDark ? theme.darkAlgorithm : theme.defaultAlgorithm, token: { colorPrimary: isDark ? '#786fff' : '#4433ff', borderRadius: 8, fontFamily: 'X5 Sans VF, Arial, sans-serif', ...controlHeights } }}>
+        <ConfigProvider locale={ruRU} componentSize={isCompact ? 'small' : 'middle'} theme={{ algorithm: isDark ? theme.darkAlgorithm : theme.defaultAlgorithm, token: { colorPrimary: isDark ? '#786fff' : '#4133ff', colorPrimaryHover: isDark ? '#948dff' : '#6171ff', colorPrimaryActive: isDark ? '#6254ff' : '#3321d9', colorError: '#ff4d4f', colorErrorHover: '#ff7875', colorErrorActive: '#d9363e', borderRadius: 6, borderRadiusSM: 4, borderRadiusLG: 8, fontFamily: 'X5 Sans VF, Arial, sans-serif', fontSize: isCompact ? 12 : 14, ...controlHeights } }}>
           <Story />
         </ConfigProvider>
       </div>;

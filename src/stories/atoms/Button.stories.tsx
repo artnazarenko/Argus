@@ -8,26 +8,34 @@ const variants = [
   { label: 'Dashed', type: 'dashed' }, { label: 'Text', type: 'text' }, { label: 'Link', type: 'link' },
 ] as const;
 
+const states = ['Default', 'Hover', 'Focused', 'Pressed', 'Disabled'] as const;
+const sizes = ['large', 'middle', 'small'] as const;
+const combinations = [
+  { basic: 'Basic', ghost: false, danger: false, shape: 'default' },
+  { basic: 'Basic', ghost: false, danger: false, shape: 'round' },
+  { basic: 'Basic', ghost: false, danger: true, shape: 'default' },
+  { basic: 'Basic', ghost: false, danger: true, shape: 'round' },
+  { basic: 'Basic', ghost: true, danger: false, shape: 'default' },
+  { basic: 'Basic', ghost: true, danger: false, shape: 'round' },
+  { basic: 'Basic', ghost: true, danger: true, shape: 'default' },
+  { basic: 'Basic', ghost: true, danger: true, shape: 'round' },
+] as const;
+
+function ButtonProbe({ variant, state, size, ghost, danger, shape, iconOnly = false }: { variant: typeof variants[number]; state: typeof states[number]; size: typeof sizes[number]; ghost: boolean; danger: boolean; shape: 'default' | 'round'; iconOnly?: boolean }) {
+  const stateClass = state === 'Default' ? '' : `button-probe--${state.toLowerCase()}`;
+  const token = `Components/Button · ${variant.label} · ${state} · ${size} · ${ghost ? 'Ghost' : 'Solid'} · ${danger ? 'Danger' : 'Normal'} · ${shape}`;
+  return <span className={`button-probe ${stateClass}`} data-token={token}><Button type={variant.type} size={size} ghost={ghost} danger={danger} shape={shape} disabled={state === 'Disabled'} icon={iconOnly ? <ArgusIcon name="icon_layout-grid" /> : undefined}>{iconOnly ? undefined : 'Button'}</Button></span>;
+}
+
+function ButtonCatalog({ iconOnly }: { iconOnly?: boolean }) {
+  return <div className="button-catalog"><table className="button-catalog__table"><thead><tr><th>Figma properties</th>{states.flatMap((state) => variants.map((variant) => <th key={`${state}-${variant.label}`}>{state}<br />{variant.label}</th>))}</tr></thead><tbody>{combinations.flatMap((combination) => sizes.map((size) => <tr key={`${iconOnly}-${combination.ghost}-${combination.danger}-${combination.shape}-${size}`}><td><div className="button-catalog__row-label"><strong>{iconOnly ? 'Icon Only' : combination.basic}</strong>Ghost={String(combination.ghost)}, Danger={String(combination.danger)}, Shape={combination.shape}<br />Size={size === 'middle' ? 'Default' : size[0].toUpperCase() + size.slice(1)}</div></td>{states.flatMap((state) => variants.map((variant) => <td key={`${state}-${variant.label}`}><ButtonProbe variant={variant} state={state} size={size} ghost={combination.ghost} danger={combination.danger} shape={combination.shape} iconOnly={iconOnly} /></td>))}</tr>))}</tbody></table></div>;
+}
+
 function ButtonExamples() {
-  return <ComponentPage category="General" name="Button" description="Кнопки из страницы «⚪ Button» NEW DS ARGUS. Витрина показывает типы, размеры и рабочие состояния; тема и плотность переключаются в верхней панели.">
-    <ComponentSection title="Типы и размеры" description="Высоты берутся из токенов Argus: Small — 24 px, Default — 32 px, Large — 40 px. В режиме Compact: 21 / 28 / 35 px.">
-      <div className="component-matrix"><div className="component-matrix__grid">
-        <div className="component-matrix__cell component-matrix__cell--head">Тип</div><div className="component-matrix__cell component-matrix__cell--head">Small</div><div className="component-matrix__cell component-matrix__cell--head">Default</div><div className="component-matrix__cell component-matrix__cell--head">Large</div>
-        {variants.flatMap((variant) => [
-          <div key={`${variant.label}-label`} className="component-matrix__cell component-matrix__cell--label">{variant.label}</div>,
-          <div key={`${variant.label}-small`} className="component-matrix__cell"><Button type={variant.type} size="small">Действие</Button></div>,
-          <div key={`${variant.label}-default`} className="component-matrix__cell"><Button type={variant.type}>Действие</Button></div>,
-          <div key={`${variant.label}-large`} className="component-matrix__cell"><Button type={variant.type} size="large">Действие</Button></div>,
-        ])}
-      </div></div>
-    </ComponentSection>
-    <ComponentSection title="Состояния" description="Наведите курсор, переведите фокус клавишей Tab и нажмите кнопку: это настоящие hover, focus и pressed-состояния компонента, а не нарисованная имитация.">
-      <div className="component-matrix"><div className="component-matrix__grid">
-        <div className="component-matrix__cell component-matrix__cell--head">Default</div><div className="component-matrix__cell component-matrix__cell--head">Disabled</div><div className="component-matrix__cell component-matrix__cell--head">Loading</div><div className="component-matrix__cell component-matrix__cell--head">Danger</div>
-        <div className="component-matrix__cell"><Button type="primary" icon={<ArgusIcon name="icon_plus" />}>Создать</Button></div><div className="component-matrix__cell"><Button type="primary" disabled>Создать</Button></div><div className="component-matrix__cell"><Button type="primary" loading>Создать</Button></div><div className="component-matrix__cell"><Button danger>Удалить</Button></div>
-      </div></div>
-      <p className="component-note">Цвета Primary, Hover и Active подключены из Argus-токенов: светлая тема #4133FF / #6171FF / #3321D9; тёмная тема переключается вместе с библиотекой.</p>
-    </ComponentSection>
+  return <ComponentPage category="General" name="Button" description="Полная матрица страницы «⚪ Button» NEW DS ARGUS: Basic и Icon Only, Ghost, Danger, Shape, пять типов, три размера и пять состояний. Наведите курсор на любой экземпляр: появится его контракт свойств и токенов.">
+    <ComponentSection title="Контракт токенов" description="Значения ниже взяты из «Components/Button/Global» и «Components/Button/Component» исходного файла токенов."><table className="token-table"><thead><tr><th>Свойство</th><th>Токен</th><th>Значение</th></tr></thead><tbody><tr><td>Высоты</td><td><span className="token-chip">controlHeightSM / controlHeight / controlHeightLG</span></td><td>24 / 32 / 40 px</td></tr><tr><td>Скругление</td><td><span className="token-chip">borderRadiusSM / borderRadius / borderRadiusLG</span></td><td>4 / 6 / 8 px</td></tr><tr><td>Внутренний отступ</td><td><span className="token-chip">paddingInlineSM / paddingInline / paddingInlineLG</span></td><td>7 / 15 / 15 px</td></tr><tr><td>Primary</td><td><span className="token-chip">colorPrimary / Hover / Active</span></td><td>#4133FF / #6171FF / #3321D9</td></tr><tr><td>Danger</td><td><span className="token-chip">colorError / Hover / Active</span></td><td>#FF4D4F / #FF7875 / #D9363E</td></tr></tbody></table></ComponentSection>
+    <ComponentSection title="Basic" description="Все комбинации свойств из Figma: Ghost, Danger, Default/Round, Large/Default/Small и Default/Hover/Focused/Pressed/Disabled."><ButtonCatalog /></ComponentSection>
+    <ComponentSection title="Icon Only" description="Та же матрица для кнопок без текста. Размер иконки: onlyIconSizeSM / onlyIconSize / onlyIconSizeLG = 14 / 16 / 18 px."><ButtonCatalog iconOnly /></ComponentSection>
   </ComponentPage>;
 }
 
