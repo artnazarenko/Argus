@@ -24,9 +24,9 @@ This document records intentional Argus changes to the ANT design system.
 - Start the browser baseline with the `Default` dimensions and typography mode.
   Retain `Compact` in the token model and documentation, but do not present it
   as a user-facing control until the team decides to use it.
-- Use `X5 Sans VF` as the intended runtime family. Before browser implementation,
-  obtain a permitted web font file or an approved fallback stack; do not commit
-  a font file without confirmed distribution rights.
+- `X5 Sans VF` is now included as supplied WOFF and WOFF2 files and loaded by
+  the Storybook runtime. Do not redistribute it outside this repository or
+  publish it publicly without confirming distribution rights.
 
 ## Figma component status legend
 

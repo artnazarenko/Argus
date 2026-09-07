@@ -1,0 +1,13 @@
+import { useId, useState, type InputHTMLAttributes, type ReactNode, type SelectHTMLAttributes, type TextareaHTMLAttributes } from 'react';
+import './form-controls.css';
+
+type FieldProps = { label?: string; hint?: string; error?: string; required?: boolean; children: ReactNode };
+export function Field({ label, hint, error, required, children }: FieldProps) { return <label className="argus-field"><span className="argus-field__label">{label}{required && <b aria-hidden="true"> *</b>}</span>{children}{(error || hint) && <span className={error ? 'argus-field__error' : 'argus-field__hint'}>{error ?? hint}</span>}</label>; }
+
+export function TextInput({ invalid, ...props }: InputHTMLAttributes<HTMLInputElement> & { invalid?: boolean }) { return <input className={`argus-input ${invalid ? 'is-invalid' : ''}`} aria-invalid={invalid || undefined} {...props} />; }
+export function TextArea({ invalid, ...props }: TextareaHTMLAttributes<HTMLTextAreaElement> & { invalid?: boolean }) { return <textarea className={`argus-input argus-textarea ${invalid ? 'is-invalid' : ''}`} aria-invalid={invalid || undefined} {...props} />; }
+export function Select({ children, ...props }: SelectHTMLAttributes<HTMLSelectElement>) { return <select className="argus-select" {...props}>{children}</select>; }
+
+export function Check({ children, defaultChecked = false, disabled }: { children: ReactNode; defaultChecked?: boolean; disabled?: boolean }) { const [checked, setChecked] = useState(defaultChecked); const id = useId(); return <label className={`argus-check ${disabled ? 'is-disabled' : ''}`} htmlFor={id}><input id={id} type="checkbox" checked={checked} disabled={disabled} onChange={(event) => setChecked(event.target.checked)} /><span className="argus-check__box" aria-hidden="true">{checked && '✓'}</span><span>{children}</span></label>; }
+export function Radio({ children, name, value, defaultChecked = false }: { children: ReactNode; name: string; value: string; defaultChecked?: boolean }) { const id = useId(); return <label className="argus-radio" htmlFor={id}><input id={id} type="radio" name={name} value={value} defaultChecked={defaultChecked} /><span className="argus-radio__dot" aria-hidden="true" /><span>{children}</span></label>; }
+export function Switch({ label = 'Включить уведомления', defaultChecked = false }: { label?: string; defaultChecked?: boolean }) { const [checked, setChecked] = useState(defaultChecked); const id = useId(); return <label className="argus-switch" htmlFor={id}><input id={id} type="checkbox" checked={checked} onChange={(event) => setChecked(event.target.checked)} /><span className="argus-switch__track" aria-hidden="true"><span /></span><span>{label}</span></label>; }

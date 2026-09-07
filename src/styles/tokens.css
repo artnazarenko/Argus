@@ -1,9 +1,16 @@
-:root {
-  font-family: 'X5 Sans VF', 'Inter', Arial, sans-serif;
+@font-face {
+  font-display: swap;
+  font-family: 'X5 Sans VF';
+  font-style: normal;
+  font-weight: 100 900;
+  src: url('../assets/fonts/X5-Sans-VF.woff2') format('woff2'),
+       url('../assets/fonts/X5-Sans-VF.woff') format('woff');
 }
 
+:root { font-family: 'X5 Sans VF', Arial, sans-serif; }
+
 .argus-story-root {
-  --argus-font-family: 'X5 Sans VF', 'Inter', Arial, sans-serif;
+  --argus-font-family: 'X5 Sans VF', Arial, sans-serif;
   --argus-font-size: 14px;
   --argus-line-height: 1.5715;
   --argus-radius: 8px;

@@ -1,7 +1,10 @@
 export type ComponentStatus = 'implemented' | 'reference' | 'wip';
 export type ComponentCatalogGroup = { title: string; items: { name: string; status: ComponentStatus; source: string }[] };
 
-const reference = (name: string) => ({ name, status: 'reference' as const, source: 'ANT baseline' });
+const implementedNames = new Set(['Avatar', 'Badge', 'Checkbox', 'Divider', 'Input', 'Radio', 'Select', 'Switch', 'Tag']);
+const reference = (name: string) => implementedNames.has(name)
+  ? ({ name, status: 'implemented' as const, source: 'Argus reference' })
+  : ({ name, status: 'reference' as const, source: 'ANT baseline' });
 const wip = (name: string) => ({ name, status: 'wip' as const, source: 'Argus WIP' });
 
 // This is a catalogue of component families, not a misleading list of every
