@@ -153,10 +153,32 @@ The same catalog can also be exported as a machine-readable JSON artifact. This
 does not force production teams to reuse Argus code, but gives them an explicit,
 versioned terminology contract.
 
+## Cross-system records
+
+Aggregated records must retain their source application identifier. Shared
+fields such as `createdAt`, `status`, and `assigneeId` reuse the canonical field
+catalog even when records originate from different subsystems.
+
+Role and capability fixtures are stored separately from task fixtures. This
+allows the same underlying records to be tested with different user-access
+scenarios without duplicating or manually filtering table rows.
+
+```text
+mocks/
+├── fixtures/
+│   ├── applications.ts
+│   ├── access-contexts.ts
+│   └── tasks-by-application.ts
+└── scenarios/
+    ├── tasks.systems-1-and-2.ts
+    ├── tasks.single-system.ts
+    ├── tasks.no-access.ts
+    └── tasks.partial-source-error.ts
+```
+
 ## Mock API behavior
 
 For page-level stories, network behavior should be mocked at the request layer
 rather than coupled to visual components. This allows the same page markup to be
 shown with success, loading, empty, error, slow-response, and permission-denied
 scenarios.
-

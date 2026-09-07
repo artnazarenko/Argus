@@ -14,3 +14,7 @@ The proposal should describe:
 
 No framework choice is recorded until the preliminary architecture is added.
 
+## Recorded inputs
+
+- [Argus portal and subsystem context](system-context.md)
+- [Navigation-system reference](references/argus-navigation-system.png)
