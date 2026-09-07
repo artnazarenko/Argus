@@ -1,6 +1,7 @@
 import type { Preview } from '@storybook/react-vite';
 import React from 'react';
 import { ConfigProvider, theme } from 'antd';
+import ruRU from 'antd/locale/ru_RU';
 import 'antd/dist/reset.css';
 import '../src/styles/tokens.css';
 import '../src/styles/storybook.css';
@@ -19,12 +20,29 @@ const preview: Preview = {
         ],
       },
     },
+    density: {
+      description: 'Размерность из токенов Argus',
+      defaultValue: 'default',
+      toolbar: {
+        title: 'Размерность',
+        icon: 'zoom',
+        items: [
+          { value: 'default', title: 'Default' },
+          { value: 'compact', title: 'Compact' },
+        ],
+      },
+    },
   },
   decorators: [
     (Story, context) => {
       const isDark = context.globals.theme === 'dark';
-      return <div className="argus-story-root" data-theme={context.globals.theme}>
-        <ConfigProvider theme={{ algorithm: isDark ? theme.darkAlgorithm : theme.defaultAlgorithm, token: { colorPrimary: isDark ? '#786fff' : '#4433ff', borderRadius: 8, fontFamily: 'X5 Sans VF, Arial, sans-serif' } }}>
+      const isCompact = context.globals.density === 'compact';
+      const controlHeights = isCompact
+        ? { controlHeightSM: 21, controlHeight: 28, controlHeightLG: 35 }
+        : { controlHeightSM: 24, controlHeight: 32, controlHeightLG: 40 };
+
+      return <div className="argus-story-root" data-theme={context.globals.theme} data-density={context.globals.density}>
+        <ConfigProvider locale={ruRU} componentSize={isCompact ? 'small' : 'middle'} theme={{ algorithm: isDark ? theme.darkAlgorithm : theme.defaultAlgorithm, token: { colorPrimary: isDark ? '#786fff' : '#4433ff', borderRadius: 8, fontFamily: 'X5 Sans VF, Arial, sans-serif', ...controlHeights } }}>
           <Story />
         </ConfigProvider>
       </div>;
@@ -33,9 +51,11 @@ const preview: Preview = {
   parameters: {
     layout: 'padded',
     controls: { expanded: true },
+    docs: { lang: 'ru-RU' },
+    htmlLang: 'ru-RU',
     options: {
       storySort: {
-        order: ['Foundation', ['Introduction', 'Colors', 'Typography'], 'Components'],
+        order: ['Основа', ['Введение', 'Цвета', 'Типографика'], 'Components', ['General', 'Layout', 'Navigation', 'Data Entry', 'Data Display', 'Feedback', 'Other']],
       },
     },
   },

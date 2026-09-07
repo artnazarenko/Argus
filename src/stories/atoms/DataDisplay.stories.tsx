@@ -1,6 +1,31 @@
-import { Avatar, Badge, Card, Collapse, Descriptions, Empty, Image, List, Progress, QRCode, Result, Space, Statistic, Table, Tag, Timeline, Tooltip, Tree } from 'antd';
+import { Avatar, Badge, Calendar, Card, Carousel, Collapse, Descriptions, Empty, Image, List, Popover, QRCode, Segmented, Space, Statistic, Table, Tabs, Tag, Timeline, Tooltip, Tour, Tree } from 'antd';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { ComponentPage, ComponentSection } from '../../components/showcase/ComponentPage';
 
-function DataDisplayExamples() { const data = [{ key: '1', name: 'Задача 01', status: 'В работе' }, { key: '2', name: 'Задача 02', status: 'Готово' }]; return <Space direction="vertical" size="large" style={{ width: '100%' }}><Space wrap><Badge count={5}><Avatar>КБ</Avatar></Badge><Avatar size="large">АП</Avatar><Tag color="processing">В работе</Tag><Tag color="success">Готово</Tag><Tag color="error">Ошибка</Tag><Tooltip title="Подсказка"><span>Наведите курсор</span></Tooltip><Progress percent={68} style={{ width: 180 }} /></Space><Card title="Карточка" style={{ width: 340 }}>Содержимое карточки</Card><Collapse items={[{ key: '1', label: 'Раскрываемая секция', children: 'Содержимое секции' }]} /><Descriptions bordered size="small" items={[{ key: '1', label: 'Статус', children: 'В работе' }, { key: '2', label: 'Исполнитель', children: 'Кирилл' }]} /><Table pagination={false} columns={[{ title: 'Название', dataIndex: 'name' }, { title: 'Статус', dataIndex: 'status' }]} dataSource={data} /><List bordered dataSource={['Первый элемент', 'Второй элемент']} renderItem={(item) => <List.Item>{item}</List.Item>} /><Timeline items={[{ children: 'Создано' }, { children: 'Согласовано' }]} /><Tree treeData={[{ title: 'Портал', key: '0', children: [{ title: 'Задачи', key: '0-0' }] }]} defaultExpandAll /><Space wrap><QRCode value="https://argus.local" /><Image width={160} src="https://placehold.co/320x200/4433ff/ffffff?text=Argus" preview={false} /><Statistic title="Активные задачи" value={1128} /></Space><Empty description="Нет данных" /><Result status="success" title="Операция завершена" /></Space>; }
-export default { title: 'Components/Data display', component: DataDisplayExamples } satisfies Meta<typeof DataDisplayExamples>;
-export const AllComponents: StoryObj<typeof DataDisplayExamples> = {};
+const meta = { title: 'Components/Data Display', parameters: { controls: { disable: true } } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+const Page = ({ name, children }: { name: string; children: React.ReactNode }) => <ComponentPage category="Data Display" name={name} description={`Страница «${name}» из NEW DS ARGUS.`}><ComponentSection title="Варианты" description="Интерактивный пример компонента.">{children}</ComponentSection></ComponentPage>;
+const tableData = [{ key: '1', name: 'Задача 01', status: 'В работе' }, { key: '2', name: 'Задача 02', status: 'Готово' }];
+
+export const AvatarStory: Story = { name: 'Avatar', render: () => <Page name="Avatar"><Space><Avatar>КБ</Avatar><Avatar size="large">АП</Avatar><Avatar size={64}>ИП</Avatar></Space></Page> };
+export const BadgeStory: Story = { name: 'Badge', render: () => <Page name="Badge"><Space><Badge count={5}><Avatar>КБ</Avatar></Badge><Badge status="success" text="Готово" /></Space></Page> };
+export const CalendarStory: Story = { name: 'Calendar', render: () => <Page name="Calendar"><Calendar fullscreen={false} style={{ maxWidth: 600 }} /></Page> };
+export const CardStory: Story = { name: 'Card', render: () => <Page name="Card"><Card title="Карточка" style={{ width: 340 }}>Содержимое карточки</Card></Page> };
+export const CarouselStory: Story = { name: 'Carousel', render: () => <Page name="Carousel"><Carousel style={{ background: '#4433ff', color: '#fff', maxWidth: 480, textAlign: 'center' }}><div><h3>Слайд 1</h3></div><div><h3>Слайд 2</h3></div></Carousel></Page> };
+export const CollapseStory: Story = { name: 'Collapse', render: () => <Page name="Collapse"><Collapse items={[{ key: '1', label: 'Раскрываемая секция', children: 'Содержимое секции' }]} /></Page> };
+export const DescriptionsStory: Story = { name: 'Descriptions', render: () => <Page name="Descriptions"><Descriptions bordered size="small" items={[{ key: '1', label: 'Статус', children: 'В работе' }, { key: '2', label: 'Исполнитель', children: 'Кирилл' }]} /></Page> };
+export const EmptyStory: Story = { name: 'Empty', render: () => <Page name="Empty"><Empty description="Нет данных" /></Page> };
+export const ImageStory: Story = { name: 'Image', render: () => <Page name="Image"><Image width={180} src="https://placehold.co/360x220/4433ff/ffffff?text=Argus" preview={false} /></Page> };
+export const ListStory: Story = { name: 'List', render: () => <Page name="List"><List bordered dataSource={['Первый элемент', 'Второй элемент']} renderItem={(item) => <List.Item>{item}</List.Item>} /></Page> };
+export const PopoverStory: Story = { name: 'Popover', render: () => <Page name="Popover"><Popover content="Дополнительная информация"><a>Наведите курсор</a></Popover></Page> };
+export const QRCodeStory: Story = { name: 'QRCode', render: () => <Page name="QRCode"><QRCode value="https://argus.local" /></Page> };
+export const SegmentedStory: Story = { name: 'Segmented', render: () => <Page name="Segmented"><Segmented options={['День', 'Неделя', 'Месяц']} /></Page> };
+export const StatisticStory: Story = { name: 'Statistic', render: () => <Page name="Statistic"><Statistic title="Активные задачи" value={1128} /></Page> };
+export const TableStory: Story = { name: 'Table', render: () => <Page name="Table"><Table pagination={false} columns={[{ title: 'Название', dataIndex: 'name' }, { title: 'Статус', dataIndex: 'status' }]} dataSource={tableData} /></Page> };
+export const TabsStory: Story = { name: 'Tabs', render: () => <Page name="Tabs"><Tabs defaultActiveKey="1" items={[{ key: '1', label: 'Общие', children: 'Содержимое вкладки' }, { key: '2', label: 'История', children: 'История изменений' }]} /></Page> };
+export const TagStory: Story = { name: 'Tag', render: () => <Page name="Tag"><Space><Tag color="processing">В работе</Tag><Tag color="success">Готово</Tag><Tag color="error">Ошибка</Tag></Space></Page> };
+export const TimelineStory: Story = { name: 'Timeline', render: () => <Page name="Timeline"><Timeline items={[{ children: 'Создано' }, { children: 'Согласовано' }]} /></Page> };
+export const TooltipStory: Story = { name: 'Tooltip', render: () => <Page name="Tooltip"><Tooltip title="Подсказка"><span>Наведите курсор</span></Tooltip></Page> };
+export const TourStory: Story = { name: 'Tour', render: () => <Page name="Tour"><p>Tour требует целевого элемента и запускается в сценарии интерфейса.</p></Page> };
+export const TreeStory: Story = { name: 'Tree', render: () => <Page name="Tree"><Tree treeData={[{ title: 'Портал', key: '0', children: [{ title: 'Задачи', key: '0-0' }] }]} defaultExpandAll /></Page> };

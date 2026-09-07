@@ -16,6 +16,8 @@
   --argus-radius: 8px;
   --argus-radius-sm: 6px;
   --argus-control-height: 32px;
+  --argus-control-height-sm: 24px;
+  --argus-control-height-lg: 40px;
   --argus-primary: #4433ff;
   --argus-primary-hover: #6254ff;
   --argus-primary-active: #3324cc;
@@ -36,6 +38,12 @@
   font-size: var(--argus-font-size);
   line-height: var(--argus-line-height);
   min-height: 100%;
+}
+
+.argus-story-root[data-density='compact'] {
+  --argus-control-height: 28px;
+  --argus-control-height-sm: 21px;
+  --argus-control-height-lg: 35px;
 }
 
 .argus-story-root[data-theme='dark'] {

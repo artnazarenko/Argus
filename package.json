@@ -12,6 +12,7 @@
   "dependencies": {
     "@ant-design/icons": "^6.3.4",
     "antd": "^6.6.2",
+    "lucide-react": "^1.41.0",
     "react": "latest",
     "react-dom": "latest"
   },

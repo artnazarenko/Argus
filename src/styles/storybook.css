@@ -26,3 +26,22 @@ body { margin: 0; }
 .status--reference { background: color-mix(in srgb, var(--argus-text-secondary) 14%, transparent); color: var(--argus-text-secondary); }
 .status--wip { background: color-mix(in srgb, var(--argus-primary) 15%, transparent); color: var(--argus-primary); }
 .demo-box { background: color-mix(in srgb, var(--argus-primary) 12%, transparent); border-radius: 6px; color: var(--argus-text); min-height: 52px; padding: 14px; }
+.component-page { max-width: 1180px; }
+.component-page__header { border-bottom: 1px solid var(--argus-border-secondary); margin-bottom: 28px; padding-bottom: 22px; }
+.component-page__kicker { color: var(--argus-primary); font-size: 12px; font-weight: 650; letter-spacing: .04em; margin: 0 0 8px; text-transform: uppercase; }
+.component-page__title { font-size: 30px; line-height: 1.2; margin: 0; }
+.component-page__description { color: var(--argus-text-secondary); margin: 10px 0 0; max-width: 760px; }
+.component-section { margin-top: 30px; }
+.component-section__title { font-size: 18px; margin: 0 0 6px; }
+.component-section__copy { color: var(--argus-text-secondary); font-size: 13px; margin: 0 0 14px; }
+.component-matrix { background: var(--argus-bg-elevated); border: 1px solid var(--argus-border); border-radius: var(--argus-radius); overflow-x: auto; }
+.component-matrix__grid { display: grid; grid-template-columns: minmax(128px, 1fr) repeat(3, minmax(132px, 1fr)); min-width: 590px; }
+.component-matrix__cell { align-items: center; border-bottom: 1px solid var(--argus-border-secondary); display: flex; min-height: 72px; padding: 14px; }
+.component-matrix__cell:nth-last-child(-n + 4) { border-bottom: 0; }
+.component-matrix__cell--head { background: color-mix(in srgb, var(--argus-primary) 6%, var(--argus-bg-elevated)); color: var(--argus-text-secondary); font-size: 12px; font-weight: 650; min-height: 44px; }
+.component-matrix__cell--label { color: var(--argus-text-secondary); font-size: 13px; }
+.component-note { background: color-mix(in srgb, var(--argus-primary) 7%, transparent); border-left: 3px solid var(--argus-primary); border-radius: 0 var(--argus-radius-sm) var(--argus-radius-sm) 0; color: var(--argus-text-secondary); font-size: 13px; margin-top: 14px; padding: 12px 14px; }
+.icon-grid { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+.icon-card { align-items: center; background: var(--argus-bg-elevated); border: 1px solid var(--argus-border-secondary); border-radius: var(--argus-radius-sm); display: flex; gap: 10px; min-height: 64px; padding: 12px; }
+.icon-card code { color: var(--argus-text-secondary); font-size: 11px; overflow-wrap: anywhere; }
+@media (max-width: 640px) { .argus-story-root { padding: 16px; } .component-page__title { font-size: 26px; } }

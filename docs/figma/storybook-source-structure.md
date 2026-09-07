@@ -130,17 +130,38 @@ Internal Only Canvas
 
 ## Как этот снимок становится Storybook
 
-1. В навигации Storybook сохраняется имя NEW DS ARGUS-страницы, включая
-   маркер статуса. Например, `🟣⚪ Table`, а не самостоятельный «ANT/Table».
-2. В метаданных истории будут поля `origin: ant | argus` и
+1. Источником содержимого остаётся NEW DS ARGUS, но пользовательская навигация
+   повторяет принятую структуру ANT: `General`, `Layout`, `Navigation`,
+   `Data Entry`, `Data Display`, `Feedback`, `Other`. Это структура разделов,
+   а не второй источник дизайна.
+2. Внутри этих разделов используются технические имена компонентов: `Button`,
+   `Input`, `Table` и т. д. Маркеры `🟣`, `⚪`, `⚒️` фиксируются в исходном
+   реестре и не становятся частью названия пункта меню.
+3. В метаданных истории будут поля `origin: ant | argus` и
    `status: ready | wip`; это не дополнительный пользовательский раздел.
-3. Одна страница семейства содержит все её свойства и варианты Figma. Тысячи
+4. Одна страница семейства содержит все её свойства и варианты Figma. Тысячи
    символов Button, Select или Table не дробятся на тысячи историй.
-4. Страницы Argus-слоя остаются отдельными компонентами библиотеки, а не
-   переносятся автоматически в Shell или Patterns.
-5. Sidebar, App switcher, Account menu и Theme menu получат отдельный статус
-   только после того, как будут найдены и подтверждены как самостоятельные
-   компоненты NEW DS ARGUS.
+5. Сборные компоненты не смешиваются с атомарными: `Shell/Sidebar`, будущие
+   App switcher, Header и Account menu находятся рядом с `Components`, но не
+   внутри него.
+
+## Утверждённое дерево Components
+
+```text
+Components
+├── General: Button, FloatButton, Icon, Typography
+├── Layout: Divider, Flex, Grid, Layout, Space, Splitter
+├── Navigation: Anchor, Breadcrumb, Dropdown, Menu, Pagination, Steps
+├── Data Entry: AutoComplete, Cascader, Checkbox, ColorPicker, DatePicker,
+│   Form, Input, InputNumber, Mentions, Radio, Rate, Select, Slider, Switch,
+│   TimePicker, Transfer, TreeSelect, Upload
+├── Data Display: Avatar, Badge, Calendar, Card, Carousel, Collapse,
+│   Descriptions, Empty, Image, List, Popover, QRCode, Segmented, Statistic,
+│   Table, Tabs, Tag, Timeline, Tooltip, Tour, Tree
+├── Feedback: Alert, Drawer, Message, Modal, Notification, Popconfirm,
+│   Progress, Result, Skeleton, Spin, Watermark
+└── Other: Affix, ConfigProvider, Assets
+```
 
 ## Исключение из пользовательского Storybook
 
