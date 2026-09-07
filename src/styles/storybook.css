@@ -1,0 +1,15 @@
+* { box-sizing: border-box; }
+body { margin: 0; }
+.argus-story-root { padding: 24px; }
+.foundation-page { max-width: 920px; }
+.foundation-eyebrow { color: var(--argus-primary); font-size: 12px; font-weight: 650; letter-spacing: .04em; text-transform: uppercase; }
+.foundation-title { font-size: 32px; line-height: 1.2; margin: 8px 0 12px; }
+.foundation-copy { color: var(--argus-text-secondary); max-width: 680px; margin: 0; }
+.token-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(168px, 1fr)); gap: 12px; margin-top: 28px; }
+.token-card { background: var(--argus-bg-elevated); border: 1px solid var(--argus-border); border-radius: var(--argus-radius); padding: 16px; }
+.token-swatch { width: 32px; height: 32px; border: 1px solid var(--argus-border); border-radius: 50%; margin-bottom: 12px; }
+.token-name { font-weight: 650; }
+.token-value { color: var(--argus-text-secondary); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; margin-top: 4px; }
+.type-scale { display: grid; gap: 16px; margin-top: 28px; }
+.type-row { border-bottom: 1px solid var(--argus-border-secondary); padding-bottom: 16px; }
+.type-meta { color: var(--argus-text-secondary); font-size: 12px; }

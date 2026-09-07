@@ -1,0 +1,46 @@
+:root {
+  font-family: 'X5 Sans VF', 'Inter', Arial, sans-serif;
+}
+
+.argus-story-root {
+  --argus-font-family: 'X5 Sans VF', 'Inter', Arial, sans-serif;
+  --argus-font-size: 14px;
+  --argus-line-height: 1.5715;
+  --argus-radius: 8px;
+  --argus-radius-sm: 6px;
+  --argus-control-height: 32px;
+  --argus-primary: #4433ff;
+  --argus-primary-hover: #6254ff;
+  --argus-primary-active: #3324cc;
+  --argus-success: #52c41a;
+  --argus-warning: #faad14;
+  --argus-error: #ff4d4f;
+  --argus-bg: #ffffff;
+  --argus-bg-layout: #f5f5f5;
+  --argus-bg-elevated: #ffffff;
+  --argus-text: rgba(0, 0, 0, 0.88);
+  --argus-text-secondary: rgba(0, 0, 0, 0.65);
+  --argus-border: #d9d9d9;
+  --argus-border-secondary: #f0f0f0;
+  --argus-focus: rgba(68, 51, 255, 0.28);
+  background: var(--argus-bg);
+  color: var(--argus-text);
+  font-family: var(--argus-font-family);
+  font-size: var(--argus-font-size);
+  line-height: var(--argus-line-height);
+  min-height: 100%;
+}
+
+.argus-story-root[data-theme='dark'] {
+  --argus-bg: #141414;
+  --argus-bg-layout: #000000;
+  --argus-bg-elevated: #1f1f1f;
+  --argus-text: rgba(255, 255, 255, 0.85);
+  --argus-text-secondary: rgba(255, 255, 255, 0.65);
+  --argus-border: #424242;
+  --argus-border-secondary: #303030;
+  --argus-focus: rgba(120, 111, 255, 0.42);
+  --argus-primary: #786fff;
+  --argus-primary-hover: #948dff;
+  --argus-primary-active: #6254ff;
+}

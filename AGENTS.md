@@ -2,9 +2,9 @@
 
 ## Current phase
 
-The repository is in its architecture phase. Do not add a frontend framework,
-Storybook dependencies, or migrate prototype code until the preliminary
-architecture has been reviewed and recorded under `docs/architecture/`.
+The preliminary architecture was reviewed and approved on 2026-09-07. The
+repository now contains a React/Vite Storybook reference implementation.
+Do not migrate unrelated prototype code into it without a dedicated task.
 
 ## Product boundaries
 
