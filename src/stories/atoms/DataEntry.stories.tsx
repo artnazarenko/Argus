@@ -1,6 +1,7 @@
 import { AutoComplete, Cascader, Checkbox, ColorPicker, DatePicker, Form, Input, InputNumber, Mentions, Radio, Rate, Select, Slider, Space, Switch, TimePicker, Transfer, TreeSelect, Upload, Button } from 'antd';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ComponentPage, ComponentSection } from '../../components/showcase/ComponentPage';
+import { InputReference } from '../../components/showcase/InputReference';
 import { ArgusIcon } from '../../icons/figmaLucide';
 
 const meta = { title: 'Components/Data Entry', parameters: { controls: { disable: true } } } satisfies Meta;
@@ -79,7 +80,7 @@ export const CheckboxStory: Story = { name: 'Checkbox', render: () => <CheckboxM
 export const ColorPickerStory: Story = { name: 'ColorPicker', render: () => <Page name="ColorPicker"><ColorPicker defaultValue="#4433ff" showText /></Page> };
 export const DatePickerStory: Story = { name: 'DatePicker', render: () => <Page name="DatePicker"><Space wrap><DatePicker placeholder="Дата" /><DatePicker.RangePicker /></Space></Page> };
 export const FormStory: Story = { name: 'Form', render: () => <Page name="Form"><Form layout="vertical" style={{ maxWidth: 360 }}><Form.Item label="Название" required><Input placeholder="Введите название" /></Form.Item><Form.Item><Button type="primary">Сохранить</Button></Form.Item></Form></Page> };
-export const InputStory: Story = { name: 'Input', render: () => <InputMatrix /> };
+export const InputStory: Story = { name: 'Input', render: () => <InputReference /> };
 export const InputNumberStory: Story = { name: 'InputNumber', render: () => <Page name="InputNumber"><InputNumber min={0} max={100} defaultValue={16} /></Page> };
 export const MentionsStory: Story = { name: 'Mentions', render: () => <Page name="Mentions"><Mentions placeholder="Упомяните коллегу через @" options={[{ value: 'Anna' }, { value: 'Kirill' }]} /></Page> };
 export const RadioStory: Story = { name: 'Radio', render: () => <Page name="Radio"><Radio.Group defaultValue="a"><Radio value="a">Первый</Radio><Radio value="b">Второй</Radio></Radio.Group></Page> };
