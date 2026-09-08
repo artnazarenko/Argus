@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "typecheck": "tsc -b",
+    "check": "pnpm typecheck && pnpm build-storybook"
   },
   "dependencies": {
     "@ant-design/icons": "^6.3.4",

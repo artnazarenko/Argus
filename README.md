@@ -5,8 +5,9 @@ and a reviewable Git workflow.
 
 ## Status
 
-The repository is bootstrapped. The application and component architecture will
-be added after the preliminary architecture is reviewed.
+The repository contains the working React/Vite Storybook reference. New work is
+made on short-lived branches and merged to `main` only through a reviewed pull
+request. See [CONTRIBUTING.md](CONTRIBUTING.md) before making changes.
 
 ## Purpose
 
@@ -25,13 +26,11 @@ be added after the preliminary architecture is reviewed.
 - **the field catalog** owns shared interface terminology and semantic formats;
 - **production repositories** continue to own production implementation.
 
-## Next input
-
-The next step is to add the proposed architecture and decide the runtime,
-Storybook structure, token-import format, component taxonomy, and preview host.
-
 The first design-system delivery should follow the
 [Figma foundation intake](docs/figma/foundation-intake.md).
 
 For the boundary between the Figma specification and the Ant Design runtime,
 see the [Ant technical baseline](docs/handoff/ant-baseline.md).
+
+For the shared Git process between designers and developers, see
+[the team workflow](docs/workflow/team-git.md).
