@@ -32,3 +32,6 @@ Storybook structure, token-import format, component taxonomy, and preview host.
 
 The first design-system delivery should follow the
 [Figma foundation intake](docs/figma/foundation-intake.md).
+
+For the boundary between the Figma specification and the Ant Design runtime,
+see the [Ant technical baseline](docs/handoff/ant-baseline.md).
