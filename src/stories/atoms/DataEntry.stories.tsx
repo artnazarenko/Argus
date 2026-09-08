@@ -2,6 +2,7 @@ import { AutoComplete, Cascader, Checkbox, ColorPicker, DatePicker, Form, Input,
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ComponentPage, ComponentSection } from '../../components/showcase/ComponentPage';
 import { InputReference } from '../../components/showcase/InputReference';
+import { SelectReference } from '../../components/showcase/SelectReference';
 import { ArgusIcon } from '../../icons/figmaLucide';
 
 const meta = { title: 'Components/Data Entry', parameters: { controls: { disable: true } } } satisfies Meta;
@@ -85,7 +86,7 @@ export const InputNumberStory: Story = { name: 'InputNumber', render: () => <Pag
 export const MentionsStory: Story = { name: 'Mentions', render: () => <Page name="Mentions"><Mentions placeholder="Упомяните коллегу через @" options={[{ value: 'Anna' }, { value: 'Kirill' }]} /></Page> };
 export const RadioStory: Story = { name: 'Radio', render: () => <Page name="Radio"><Radio.Group defaultValue="a"><Radio value="a">Первый</Radio><Radio value="b">Второй</Radio></Radio.Group></Page> };
 export const RateStory: Story = { name: 'Rate', render: () => <Page name="Rate"><Rate defaultValue={3} /></Page> };
-export const SelectStory: Story = { name: 'Select', render: () => <Page name="Select"><Select defaultValue="draft" options={options} style={{ width: 260 }} /></Page> };
+export const SelectStory: Story = { name: 'Select', render: () => <SelectReference /> };
 export const SliderStory: Story = { name: 'Slider', render: () => <Page name="Slider"><Slider defaultValue={35} style={{ width: 280 }} /></Page> };
 export const SwitchStory: Story = { name: 'Switch', render: () => <Page name="Switch"><Space><Switch /><Switch defaultChecked /><Switch disabled /></Space></Page> };
 export const TimePickerStory: Story = { name: 'TimePicker', render: () => <Page name="TimePicker"><TimePicker placeholder="Время" /></Page> };

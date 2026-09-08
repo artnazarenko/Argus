@@ -165,5 +165,21 @@ body { margin: 0; }
 .input-reference__captions p { color: var(--argus-text-secondary); margin: 0; }
 .input-reference__caption--error { color: var(--argus-error) !important; }
 .input-reference__caption--warning { color: #d48806 !important; }
+.select-reference { display: grid; gap: 16px; }
+.select-reference__family h3 { font-size: 14px; margin: 0 0 8px; }
+.select-reference__matrix { border: 1px solid var(--argus-border); border-radius: var(--argus-radius); overflow: auto; }
+.select-reference__matrix table { border-collapse: separate; border-spacing: 0; min-width: 1260px; width: 100%; }
+.select-reference__matrix th, .select-reference__matrix td { border-bottom: 1px solid var(--argus-border-secondary); border-right: 1px solid var(--argus-border-secondary); padding: 8px; text-align: center; vertical-align: middle; }
+.select-reference__matrix th { background: color-mix(in srgb, var(--argus-primary) 6%, var(--argus-bg-elevated)); color: var(--argus-text-secondary); font-size: 11px; font-weight: var(--argus-font-weight-strong); }
+.select-reference__matrix td:first-child { background: var(--argus-bg-elevated); color: var(--argus-text-secondary); font-size: 12px; min-width: 130px; text-align: left; }
+.select-reference__matrix tr:last-child td { border-bottom: 0; }
+.select-reference__matrix th:last-child, .select-reference__matrix td:last-child { border-right: 0; }
+.select-reference__probe { display: inline-flex; position: relative; width: 205px; }
+.select-reference__probe::after { background: #1f1f24; border-radius: 4px; color: #fff; content: attr(data-token); display: none; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; left: 50%; line-height: 1.3; max-width: 240px; padding: 6px 8px; pointer-events: none; position: absolute; top: calc(100% + 7px); transform: translateX(-50%); white-space: normal; z-index: 5; }
+.select-reference__probe:hover::after { display: block; }
+.select-reference__probe .ant-select { font-family: var(--argus-font-family); }
+.select-reference__probe--hover .ant-select-selector { border-color: #6171ff !important; }
+.select-reference__probe--focused .ant-select-selector { border-color: #4133ff !important; box-shadow: 0 0 0 2px #0591ff1a !important; }
+.select-reference__probe--success .ant-select-selector { border-color: #52c41a !important; }
 @media (max-width: 640px) { .token-table { font-size: 12px; } .token-table th, .token-table td { padding: 8px; } }
 @media (max-width: 640px) { .argus-story-root { padding: 16px; } .component-page__title { font-size: 26px; } }
