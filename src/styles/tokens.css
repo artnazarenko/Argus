@@ -1,0 +1,110 @@
+@font-face {
+  font-display: swap;
+  font-family: 'X5 Sans VF';
+  font-style: normal;
+  font-weight: 100 900;
+  src: url('../assets/fonts/X5-Sans-VF.woff2') format('woff2'),
+       url('../assets/fonts/X5-Sans-VF.woff') format('woff');
+}
+
+:root { font-family: 'X5 Sans VF', Arial, sans-serif; }
+
+.argus-story-root {
+  --argus-font-family: 'X5 Sans VF', Arial, sans-serif;
+  --argus-font-size: 14px;
+  --argus-font-size-sm: 12px;
+  --argus-font-size-lg: 16px;
+  --argus-font-size-h1: 38px;
+  --argus-font-size-h2: 30px;
+  --argus-font-size-h3: 24px;
+  --argus-font-size-h4: 20px;
+  --argus-font-size-h5: 16px;
+  --argus-font-size-h6: 14px;
+  --argus-line-height: 1.5715;
+  --argus-line-height-s: 16px;
+  --argus-line-height-sm: 20px;
+  --argus-line-height-base: 22px;
+  --argus-line-height-lg: 24px;
+  --argus-line-height-h1: 46px;
+  --argus-line-height-h2: 38px;
+  --argus-line-height-h3: 32px;
+  --argus-line-height-h4: 28px;
+  --argus-line-height-h5: 24px;
+  --argus-line-height-h6: 22px;
+  --argus-font-weight-normal: 400;
+  --argus-font-weight-medium: 500;
+  --argus-font-weight-strong: 600;
+  --argus-paragraph-spacing-sm: 8px;
+  --argus-paragraph-spacing: 12px;
+  --argus-list-spacing-sm: 4px;
+  --argus-list-spacing: 8px;
+  --argus-radius: 6px;
+  --argus-radius-sm: 4px;
+  --argus-radius-lg: 8px;
+  --argus-control-height: 32px;
+  --argus-control-height-sm: 24px;
+  --argus-control-height-lg: 40px;
+  --argus-primary: #4433ff;
+  --argus-primary-hover: #6254ff;
+  --argus-primary-active: #3324cc;
+  --argus-success: #52c41a;
+  --argus-warning: #faad14;
+  --argus-error: #ff4d4f;
+  --argus-bg: #ffffff;
+  --argus-bg-layout: #f5f5f5;
+  --argus-bg-elevated: #ffffff;
+  --argus-text: rgba(0, 0, 0, 0.88);
+  --argus-text-secondary: rgba(0, 0, 0, 0.65);
+  --argus-border: #d9d9d9;
+  --argus-border-secondary: #f0f0f0;
+  --argus-focus: rgba(68, 51, 255, 0.28);
+  background: var(--argus-bg);
+  color: var(--argus-text);
+  font-family: var(--argus-font-family);
+  font-size: var(--argus-font-size);
+  line-height: var(--argus-line-height);
+  min-height: 100%;
+}
+
+.argus-story-root[data-density='compact'] {
+  --argus-control-height: 28px;
+  --argus-control-height-sm: 21px;
+  --argus-control-height-lg: 35px;
+  --argus-font-size-sm: 10px;
+  --argus-font-size: 12px;
+  --argus-font-size-lg: 14px;
+  --argus-font-size-h1: 32px;
+  --argus-font-size-h2: 26px;
+  --argus-font-size-h3: 20px;
+  --argus-font-size-h4: 16px;
+  --argus-font-size-h5: 14px;
+  --argus-font-size-h6: 12px;
+  --argus-line-height-s: 14px;
+  --argus-line-height-sm: 18px;
+  --argus-line-height-base: 20px;
+  --argus-line-height-lg: 22px;
+  --argus-line-height-h1: 40px;
+  --argus-line-height-h2: 34px;
+  --argus-line-height-h3: 28px;
+  --argus-line-height-h4: 24px;
+  --argus-line-height-h5: 22px;
+  --argus-line-height-h6: 20px;
+  --argus-paragraph-spacing-sm: 6px;
+  --argus-paragraph-spacing: 10px;
+  --argus-list-spacing-sm: 2px;
+  --argus-list-spacing: 6px;
+}
+
+.argus-story-root[data-theme='dark'] {
+  --argus-bg: #141414;
+  --argus-bg-layout: #000000;
+  --argus-bg-elevated: #1f1f1f;
+  --argus-text: rgba(255, 255, 255, 0.85);
+  --argus-text-secondary: rgba(255, 255, 255, 0.65);
+  --argus-border: #424242;
+  --argus-border-secondary: #303030;
+  --argus-focus: rgba(120, 111, 255, 0.42);
+  --argus-primary: #786fff;
+  --argus-primary-hover: #948dff;
+  --argus-primary-active: #6254ff;
+}

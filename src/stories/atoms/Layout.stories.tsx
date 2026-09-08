@@ -1,0 +1,36 @@
+import { Col, Divider, Flex, Layout, Row, Space, Splitter } from 'antd';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { ComponentPage, ComponentSection } from '../../components/showcase/ComponentPage';
+import { ArgusAppLayout, ArgusSection } from '../../components/layout/ArgusAppLayout';
+import { LayoutPlayground } from '../../components/showcase/LayoutPlayground';
+
+const meta = { title: 'Components/Layout', parameters: { controls: { disable: true } } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+const Page = ({ name, children }: { name: string; children: React.ReactNode }) => <ComponentPage category="Layout" name={name} description={`Страница «${name}» из NEW DS ARGUS. Размеры и отступы переключаются через режим плотности.`}><ComponentSection title="Варианты" description="Интерактивный пример компонента.">{children}</ComponentSection></ComponentPage>;
+
+export const DividerStory: Story = { name: 'Divider', render: () => <Page name="Divider"><Space direction="vertical" style={{ width: '100%' }}><Divider>Разделитель с текстом</Divider><Divider dashed /><Divider>Слева</Divider></Space></Page> };
+export const FlexStory: Story = { name: 'Flex', render: () => <Page name="Flex"><Flex gap="small" wrap>{['Первый', 'Второй', 'Третий'].map((item) => <div className="demo-box" key={item}>{item}</div>)}</Flex></Page> };
+export const GridStory: Story = { name: 'Grid', render: () => <Page name="Grid"><Row gutter={[12, 12]}>{[1, 2, 3].map((item) => <Col span={8} key={item}><div className="demo-box">Колонка {item}</div></Col>)}</Row></Page> };
+export const LayoutStory: Story = { name: 'Layout', render: () => <ComponentPage category="Layout" name="Layout" description="Регламент раскладки NEW DS ARGUS: закреплённый Sidebar, область горизонтальной прокрутки Header/Main/Aside, пределы ширины и секции с внутренней шапкой.">
+  <ComponentSection title="Контракт раскладки" description="Это не макет конкретного экрана. Header, Filters, Custom и Aside — заменяемые слоты; их порядок в Main Content определяется задачей страницы.">
+    <div className="layout-reference__rules"><div className="layout-reference__rule"><strong>Внешний отступ</strong><span><code>8 px</code> между Sidebar, Header, Main Content и Aside.</span></div><div className="layout-reference__rule"><strong>Фиксированные колонки</strong><span>Sidebar — <code>232 px</code>, Aside — <code>240 px</code>.</span></div><div className="layout-reference__rule"><strong>Рабочая область</strong><span>Header + Main + Aside имеют минимум <code>1024 px</code>; полный каркас — от <code>1264 px</code>.</span></div><div className="layout-reference__rule"><strong>Ширина экрана</strong><span>До <code>1280 px</code> — горизонтальная прокрутка рабочей области; после <code>1920 px</code> — максимальная ширина и фон по бокам.</span></div></div>
+  </ComponentSection>
+  <ComponentSection title="Интерактивные каркасы" description="Переключайте сценарий и контрольную ширину. Демонстрация применяет те же 232 / 240 / 8 px и правила прокрутки, которые заданы в библиотеке Argus.">
+    <LayoutPlayground />
+  </ComponentSection>
+  <ComponentSection title="Когда использовать Flex, Grid и Ant Grid" description="Каркас портала — не 24-колоночная сетка: его фиксированные области и прокрутка требуют собственной CSS-раскладки. Ниже — единое правило применения инструментов.">
+    <table className="token-table"><thead><tr><th>Инструмент</th><th>Применение в Argus</th><th>Почему</th></tr></thead><tbody><tr><td>CSS Flex</td><td>Внешний каркас: Sidebar + прокручиваемая рабочая область; панели действий, фильтры, строчные группы.</td><td>Одно измерение, фиксированная ширина Sidebar и управляемый перенос элементов.</td></tr><tr><td>CSS Grid</td><td>Рабочая область: Main Content + Aside; карточки и локальные области с двумя и более осями.</td><td><code>minmax(0, 1fr) 240px</code> точно фиксирует Aside и допускает перенос Aside в поток страницы.</td></tr><tr><td>Ant Grid (Row / Col)</td><td>Только локальная 24-колоночная сетка внутри Custom-слота: формы, карточки, показатели.</td><td>Используется, когда нужен API Ant и его брейкпоинты; не управляет каркасом портала.</td></tr></tbody></table>
+  </ComponentSection>
+  <ComponentSection title="Базовый каркас" description="Измените ширину нижнего правого угла демонстрации: ниже 1280 px Sidebar остаётся на месте, а прокручиваются Header, Main Content и Aside.">
+    <div className="layout-reference__viewport"><div className="layout-reference__viewport-label">Viewport · responsive shell</div><ArgusAppLayout sidebar={<div className="layout-slot layout-slot--sidebar">Sidebar<br /><small>232 px · отдельная вертикальная прокрутка</small></div>} header={<div className="layout-slot">Header<br /><small>обычное или закреплённое состояние</small></div>} main={<><ArgusSection title="H3 Title" subtitle="H4 Subtitle"><div className="layout-slot layout-slot--tall">Custom slot</div></ArgusSection><ArgusSection title="H3 Title"><div className="layout-slot">Custom slot без subtitle</div></ArgusSection></>} aside={<div className="layout-slot layout-slot--aside">Aside<br /><small>240 px · отдельная вертикальная прокрутка</small></div>} /></div>
+  </ComponentSection>
+  <ComponentSection title="Гибкое положение Aside" description="Aside не является частью секции. На странице он может оставаться правой колонкой либо быть перенесён в Main Content между любыми секциями — в DOM это меняется порядком слотов, а не абсолютным позиционированием.">
+    <div className="layout-reference__move-aside"><div className="layout-slot">Filters</div><div className="layout-slot">Custom</div><div className="layout-slot">Aside как отдельный слот после Filters</div><div className="layout-slot">Custom</div></div>
+  </ComponentSection>
+  <ComponentSection title="Скроллинг и Header" description="Sidebar и Aside имеют независимую вертикальную прокрутку. Main Content — источник вертикальной прокрутки страницы. Обычный Header входит в горизонтальную прокрутку; закреплённый Header располагается поверх Main Content и Aside и остаётся в viewport.">
+    <table className="token-table"><thead><tr><th>Диапазон</th><th>Горизонтальное поведение</th><th>Вертикальное поведение</th></tr></thead><tbody><tr><td>&lt; 1280 px</td><td>Прокручиваются Header, Main Content и Aside; Sidebar закреплён слева.</td><td>Sidebar / Aside — собственные скроллы; Main Content — общий вертикальный поток.</td></tr><tr><td>1280–1920 px</td><td>Все области помещаются, горизонтальной прокрутки нет.</td><td>Без изменений.</td></tr><tr><td>≥ 1920 px</td><td>Каркас ограничен 1920 px, фон виден по бокам.</td><td>Без изменений.</td></tr></tbody></table>
+  </ComponentSection>
+</ComponentPage> };
+export const SpaceStory: Story = { name: 'Space', render: () => <Page name="Space"><Space wrap size="large"><span>Первый элемент</span><span>Второй элемент</span><span>Третий элемент</span></Space></Page> };
+export const SplitterStory: Story = { name: 'Splitter', render: () => <Page name="Splitter"><Splitter style={{ height: 180 }}><Splitter.Panel defaultSize="40%"><div className="demo-box">Левая область</div></Splitter.Panel><Splitter.Panel><div className="demo-box">Правая область</div></Splitter.Panel></Splitter></Page> };

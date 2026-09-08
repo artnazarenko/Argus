@@ -1,0 +1,64 @@
+{
+  "designSystem": {
+    "baseName": "ANT",
+    "argusOverrides": true
+  },
+  "libraries": [
+    {
+      "role": "base",
+      "name": "ANT",
+      "fileName": "DS ANT - Original file.fig",
+      "sizeBytes": 45341399,
+      "sha256": "5c55725dfe73cb3dea51ff8590488d62eccfa79981e3124da605d59c7c2b3d8e",
+      "exportedAt": "2026-09-07T12:56:02.611Z",
+      "repositoryStorage": "not-tracked"
+    },
+    {
+      "role": "derived",
+      "name": "Argus",
+      "fileName": "NEW DS ARGUS.fig",
+      "sizeBytes": 66335044,
+      "sha256": "85c644c44b64f6aecf36f1ed3a13c4cdb7750d97e5c708875d0a7b19cb25aeff",
+      "exportedAt": "2026-09-07T12:59:34.549Z",
+      "repositoryStorage": "not-tracked"
+    }
+  ],
+  "source": {
+    "figmaFileUrl": null,
+    "exportPlugin": null,
+    "tokenExportFiles": [
+      {
+        "role": "base",
+        "name": "ANT",
+        "path": "raw/tokens/ant.tokens.json",
+        "sizeBytes": 218939,
+        "sha256": "9db073c0f1bd31c3347bc3e1928839c6d52a03c366347163dab0f16ee9a7ffc4"
+      },
+      {
+        "role": "derived",
+        "name": "Argus",
+        "path": "raw/tokens/argus.tokens.json",
+        "sizeBytes": 225157,
+        "sha256": "52de54e677eceed3d7a54b2116f70c339e25ee085b08a6b1a7d282ecad823e25"
+      }
+    ]
+  },
+  "tokenModes": [
+    "ARGUS Light",
+    "ARGUS Dark",
+    "Default",
+    "Compact"
+  ],
+  "fontFamilies": [
+    "X5 Sans VF",
+    "X5 Sans UI",
+    "SF Pro Text",
+    "Inter"
+  ],
+  "assets": [],
+  "notes": [
+    "The source .fig files were inspected locally and are intentionally never committed to this repository.",
+    "The immutable plugin JSON token exports are the raw source for the normalized token pipeline.",
+    "The implementation baseline is ARGUS Light and ARGUS Dark with Default density; Compact is retained as a documented future mode."
+  ]
+}

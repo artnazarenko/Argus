@@ -1,25 +1,17 @@
-## Design task
+## Что изменено
 
-- Figma link:
-- Storybook preview:
-- Component or pattern:
+<!-- Коротко опишите результат и ссылку на Figma-фрейм. -->
 
-## What changed
+## Матрица проверки
 
+- [ ] ARGUS Light
+- [ ] ARGUS Dark
+- [ ] Default / Compact (если применимо)
+- [ ] Все состояния и размеры из New DS Argus
+- [ ] Клавиатура и focus
+- [ ] Моковые данные и shared field catalog не нарушены
+- [ ] `pnpm check` завершился успешно
 
-## Contract changes
+## Риски и решения
 
-- [ ] Variants or props changed
-- [ ] Tokens changed
-- [ ] Behavior changed
-- [ ] Responsive behavior changed
-- [ ] Accessibility expectations changed
-
-## Review checklist
-
-- [ ] Relevant states are documented
-- [ ] Figma and Storybook naming match
-- [ ] Existing stories were checked for regressions
-- [ ] Frontend handoff notes were updated
-- [ ] A second participant reviewed the change
-
+<!-- Опишите расхождения с Ant, WIP-компоненты и решения для production-команды. -->
