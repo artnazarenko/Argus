@@ -181,5 +181,19 @@ body { margin: 0; }
 .select-reference__probe--hover .ant-select-selector { border-color: #6171ff !important; }
 .select-reference__probe--focused .ant-select-selector { border-color: #4133ff !important; box-shadow: 0 0 0 2px #0591ff1a !important; }
 .select-reference__probe--success .ant-select-selector { border-color: #52c41a !important; }
+.switch-reference { display: grid; gap: 16px; }
+.switch-reference__family h3 { font-size: 14px; margin: 0 0 8px; }
+.switch-reference__matrix { border: 1px solid var(--argus-border); border-radius: var(--argus-radius); overflow: auto; }
+.switch-reference__matrix table { border-collapse: separate; border-spacing: 0; min-width: 720px; width: 100%; }
+.switch-reference__matrix th, .switch-reference__matrix td { border-bottom: 1px solid var(--argus-border-secondary); border-right: 1px solid var(--argus-border-secondary); padding: 10px; text-align: center; vertical-align: middle; }
+.switch-reference__matrix th { background: color-mix(in srgb, var(--argus-primary) 6%, var(--argus-bg-elevated)); color: var(--argus-text-secondary); font-size: 11px; font-weight: var(--argus-font-weight-strong); }
+.switch-reference__matrix td:first-child { background: var(--argus-bg-elevated); color: var(--argus-text-secondary); font-size: 12px; text-align: left; }
+.switch-reference__matrix tr:last-child td { border-bottom: 0; }
+.switch-reference__matrix th:last-child, .switch-reference__matrix td:last-child { border-right: 0; }
+.switch-reference__probe { display: inline-flex; position: relative; }
+.switch-reference__probe::after { background: #1f1f24; border-radius: 4px; color: #fff; content: attr(data-token); display: none; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; left: 50%; line-height: 1.3; max-width: 240px; padding: 6px 8px; pointer-events: none; position: absolute; top: calc(100% + 7px); transform: translateX(-50%); white-space: normal; z-index: 5; }
+.switch-reference__probe:hover::after { display: block; }
+.switch-reference__probe--pressed .ant-switch { background: #3321d9 !important; }
+.switch-reference__probe--intermediate .ant-switch { background: #b2c4ff !important; }
 @media (max-width: 640px) { .token-table { font-size: 12px; } .token-table th, .token-table td { padding: 8px; } }
 @media (max-width: 640px) { .argus-story-root { padding: 16px; } .component-page__title { font-size: 26px; } }

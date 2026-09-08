@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ComponentPage, ComponentSection } from '../../components/showcase/ComponentPage';
 import { InputReference } from '../../components/showcase/InputReference';
 import { SelectReference } from '../../components/showcase/SelectReference';
+import { SwitchReference } from '../../components/showcase/SwitchReference';
 import { ArgusIcon } from '../../icons/figmaLucide';
 
 const meta = { title: 'Components/Data Entry', parameters: { controls: { disable: true } } } satisfies Meta;
@@ -88,7 +89,7 @@ export const RadioStory: Story = { name: 'Radio', render: () => <Page name="Radi
 export const RateStory: Story = { name: 'Rate', render: () => <Page name="Rate"><Rate defaultValue={3} /></Page> };
 export const SelectStory: Story = { name: 'Select', render: () => <SelectReference /> };
 export const SliderStory: Story = { name: 'Slider', render: () => <Page name="Slider"><Slider defaultValue={35} style={{ width: 280 }} /></Page> };
-export const SwitchStory: Story = { name: 'Switch', render: () => <Page name="Switch"><Space><Switch /><Switch defaultChecked /><Switch disabled /></Space></Page> };
+export const SwitchStory: Story = { name: 'Switch', render: () => <SwitchReference /> };
 export const TimePickerStory: Story = { name: 'TimePicker', render: () => <Page name="TimePicker"><TimePicker placeholder="Время" /></Page> };
 export const TransferStory: Story = { name: 'Transfer', render: () => <Page name="Transfer"><Transfer dataSource={[{ key: '1', title: 'Элемент 1' }, { key: '2', title: 'Элемент 2' }]} targetKeys={['2']} render={(item) => item.title} /></Page> };
 export const TreeSelectStory: Story = { name: 'TreeSelect', render: () => <Page name="TreeSelect"><TreeSelect treeData={[{ title: 'Все системы', value: 'all', children: [{ title: 'Аргус', value: 'argus' }] }]} placeholder="Выберите систему" style={{ width: 280 }} /></Page> };
