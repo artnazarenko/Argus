@@ -137,9 +137,9 @@ body { margin: 0; }
 .argus-section__header h3 { font-size: var(--argus-font-size-h3); line-height: var(--argus-line-height-h3); margin: 0; }
 .argus-section__header h4 { color: var(--argus-text-secondary); font-size: var(--argus-font-size-h4); line-height: var(--argus-line-height-h4); margin: 0; }
 .argus-section__content { min-height: 72px; }
-.layout-slot { align-items: center; background: color-mix(in srgb, var(--argus-primary) 6%, var(--argus-bg-elevated)); border: 1px dashed color-mix(in srgb, var(--argus-primary) 45%, var(--argus-border)); border-radius: var(--argus-radius-sm); color: var(--argus-text-secondary); display: flex; justify-content: center; min-height: 72px; padding: 12px; text-align: center; }
+.layout-slot { align-items: center; background: var(--argus-bg-elevated); border: 0; border-radius: var(--argus-radius); color: var(--argus-text-secondary); display: flex; justify-content: center; min-height: 72px; padding: 12px; text-align: center; }
 .layout-slot--tall { min-height: 180px; }
-.layout-slot--sidebar { background: color-mix(in srgb, #23c6b7 15%, var(--argus-bg-elevated)); min-height: 100%; }
+.layout-slot--sidebar { min-height: 100%; }
 .layout-slot--aside { min-height: 100%; }
 .layout-reference__move-aside { display: grid; gap: 8px; grid-template-columns: 1fr 1fr; }
 .layout-playground { display: grid; gap: 12px; }
