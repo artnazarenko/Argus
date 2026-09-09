@@ -1,7 +1,8 @@
-import { Alert, Button, Drawer, message, Modal, notification, Popconfirm, Progress, Result, Skeleton, Space, Spin, Watermark } from 'antd';
+import { Alert, Button, Descriptions, message, Modal, notification, Popconfirm, Progress, Result, Segmented, Skeleton, Space, Spin, Table, Watermark } from 'antd';
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ComponentPage, ComponentSection } from '../../components/showcase/ComponentPage';
+import { ArgusDrawer, type ArgusDrawerMode } from '../../components/Drawer/ArgusDrawer';
 
 const meta = { title: 'Components/Feedback', parameters: { controls: { disable: true } } } satisfies Meta;
 export default meta;
@@ -20,5 +21,5 @@ export const SkeletonStory: Story = { name: 'Skeleton', render: () => <Page name
 export const SpinStory: Story = { name: 'Spin', render: () => <Page name="Spin"><Spin size="large" /></Page> };
 export const WatermarkStory: Story = { name: 'Watermark', render: () => <Page name="Watermark"><Watermark content="Argus"><div style={{ height: 150, padding: 20 }}>Содержимое с водяным знаком</div></Watermark></Page> };
 
-function DrawerPage() { const [open, setOpen] = useState(false); return <Page name="Drawer"><Button onClick={() => setOpen(true)}>Открыть Drawer</Button><Drawer open={open} title="Боковая панель" onClose={() => setOpen(false)}>Содержимое Drawer</Drawer></Page>; }
+function DrawerPage() { const [open, setOpen] = useState(false); const [mode, setMode] = useState<ArgusDrawerMode>('content'); return <Page name="Drawer"><ComponentSection title="ARGUS Drawer" description="Правая боковая панель с верхней служебной зоной, заголовком, вкладками, прокруткой и нижними действиями."><Space wrap><Segmented value={mode} onChange={(value) => setMode(value as ArgusDrawerMode)} options={[{ label: 'Контент', value: 'content' }, { label: 'Пусто', value: 'empty' }, { label: 'Ошибка', value: 'error' }]} /><Button type="primary" onClick={() => setOpen(true)}>Открыть Drawer</Button></Space><ArgusDrawer open={open} onClose={() => setOpen(false)} mode={mode}><p>Система сбора и анализа сетевых потоков Net Flow</p><Descriptions column={1} size="small" items={[{ key: '1', label: 'Статус', children: 'В работе' }, { key: '2', label: 'Тип', children: 'Проект' }, { key: '3', label: 'Ответственный', children: 'Сергеев Сергей Сергеевич' }]} /><Table size="small" pagination={false} columns={[{ title: 'Тип', dataIndex: 'type' }, { title: 'Статус', dataIndex: 'status' }, { title: 'Дата', dataIndex: 'date' }]} dataSource={[{ key: '1', type: 'Проверка реализации', status: 'В работе', date: '22.01.2026' }, { key: '2', type: 'Протокол проверки', status: 'Завершено', date: '22.03.2026' }]} /></ArgusDrawer></ComponentSection><ComponentSection title="Варианты композиции" description="Одна оболочка поддерживает пустое, заполненное и ошибочное состояние; таблица и прочие блоки подключаются через children."><p>Фиксированная ширина и внутренняя прокрутка соответствуют паттерну Drawer из New DS Argus.</p></ComponentSection></Page>; }
 function ModalPage() { const [open, setOpen] = useState(false); return <Page name="Modal"><Button onClick={() => setOpen(true)}>Открыть Modal</Button><Modal open={open} title="Подтвердите действие" onOk={() => setOpen(false)} onCancel={() => setOpen(false)}>Содержимое модального окна</Modal></Page>; }
