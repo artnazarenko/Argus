@@ -155,6 +155,16 @@ body { margin: 0; }
 .layout-playground__viewport-caption { background: var(--argus-bg-elevated); border-bottom: 1px solid var(--argus-border); color: var(--argus-text-secondary); font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; padding: 8px 12px; }
 .layout-playground .argus-app-layout { height: 560px; }
 .layout-playground__table-slot { display: grid; gap: 12px; }
+
+.argus-table-workbench { display: grid; gap: 12px; min-width: 0; }
+.argus-table-toolbar { align-items: center; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; }
+.argus-table-widths { align-items: center; background: var(--argus-bg-layout); border: 1px solid var(--argus-border-secondary); border-radius: var(--argus-radius); color: var(--argus-text-secondary); display: flex; flex-wrap: wrap; gap: 12px; padding: 8px 12px; }
+.argus-table-widths label { align-items: center; display: inline-flex; gap: 6px; font-size: 11px; }
+.argus-table-widths input { accent-color: var(--argus-primary); width: 72px; }
+.argus-table-status { border-radius: 999px; display: inline-block; font-size: 12px; padding: 2px 8px; }
+.argus-table-status--progress { background: color-mix(in srgb, var(--argus-primary) 12%, transparent); color: var(--argus-primary); }
+.argus-table-status--success { background: color-mix(in srgb, #52c41a 14%, transparent); color: #389e0d; }
+.argus-table-status--error { background: color-mix(in srgb, #ff4d4f 14%, transparent); color: #d9363e; }
 @media (max-width: 760px) { .layout-playground__controls { grid-template-columns: 1fr; } }
 @media (min-width: 1920px) { .argus-app-layout { border-left: 1px solid var(--argus-border); border-right: 1px solid var(--argus-border); } }
 .input-reference { display: grid; gap: 16px; }

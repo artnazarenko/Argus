@@ -1,6 +1,7 @@
 import { Avatar, Badge, Calendar, Card, Carousel, Collapse, Descriptions, Empty, Image, List, Popover, QRCode, Segmented, Space, Statistic, Table, Tabs, Tag, Timeline, Tooltip, Tour, Tree } from 'antd';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ComponentPage, ComponentSection } from '../../components/showcase/ComponentPage';
+import { TableWorkbench } from '../../components/Table/TableWorkbench';
 
 const meta = { title: 'Components/Data Display', parameters: { controls: { disable: true } } } satisfies Meta;
 export default meta;
@@ -22,7 +23,7 @@ export const PopoverStory: Story = { name: 'Popover', render: () => <Page name="
 export const QRCodeStory: Story = { name: 'QRCode', render: () => <Page name="QRCode"><QRCode value="https://argus.local" /></Page> };
 export const SegmentedStory: Story = { name: 'Segmented', render: () => <Page name="Segmented"><Segmented options={['День', 'Неделя', 'Месяц']} /></Page> };
 export const StatisticStory: Story = { name: 'Statistic', render: () => <Page name="Statistic"><Statistic title="Активные задачи" value={1128} /></Page> };
-export const TableStory: Story = { name: 'Table', render: () => <Page name="Table"><Table pagination={false} columns={[{ title: 'Название', dataIndex: 'name' }, { title: 'Статус', dataIndex: 'status' }]} dataSource={tableData} /></Page> };
+export const TableStory: Story = { name: 'Table', render: () => <Page name="Table"><ComponentSection title="Полный рабочий стенд" description="Ant Table с сортировкой, фильтрацией, фиксированными колонками, скрытием, изменением ширины, горизонтальной и вертикальной прокруткой, выделением строк и пагинацией."><TableWorkbench /></ComponentSection><ComponentSection title="Контракт" description="Компонент сохраняет семантическую табличную разметку Ant Design для доступности и производительности; визуальная оболочка оформлена токенами Argus и допускает расширение под блочные композиции."><p>Источник поведения: <a href="https://ant.design/components/table" target="_blank" rel="noreferrer">Ant Design Table</a>. Вложенные таблицы и drag-and-drop колонок оставлены как следующий этап.</p></ComponentSection></Page> };
 export const TabsStory: Story = { name: 'Tabs', render: () => <Page name="Tabs"><Tabs defaultActiveKey="1" items={[{ key: '1', label: 'Общие', children: 'Содержимое вкладки' }, { key: '2', label: 'История', children: 'История изменений' }]} /></Page> };
 export const TagStory: Story = { name: 'Tag', render: () => <Page name="Tag"><Space><Tag color="processing">В работе</Tag><Tag color="success">Готово</Tag><Tag color="error">Ошибка</Tag></Space></Page> };
 export const TimelineStory: Story = { name: 'Timeline', render: () => <Page name="Timeline"><Timeline items={[{ children: 'Создано' }, { children: 'Согласовано' }]} /></Page> };
